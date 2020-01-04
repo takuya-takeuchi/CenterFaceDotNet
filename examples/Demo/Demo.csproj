@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Takuya Takeuchi</Authors>
+    <Description>Example of CenterFaceDotNet</Description>
+    <Company />
+    <Configurations>Debug;Release</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\CenterFaceDotNet\CenterFaceDotNet.csproj" />
+    <ProjectReference Include="..\..\src\NcnnDotNet\src\NcnnDotNet\NcnnDotNet.csproj" />
+  </ItemGroup>
+
+</Project>

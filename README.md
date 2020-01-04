@@ -1,7 +1,7 @@
-# ![Alt text](nuget/face48.png "UltraFaceDotNet") UltraFaceDotNet [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![codecov](https://codecov.io/gh/takuya-takeuchi/UltraFaceDotNet/branch/master/graph/badge.svg)](https://codecov.io/gh/takuya-takeuchi/UltraFaceDotNet)
+# ![Alt text](nuget/face48.png "CenterFaceDotNet") CenterFaceDotNet [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![codecov](https://codecov.io/gh/takuya-takeuchi/CenterFaceDotNet/branch/master/graph/badge.svg)](https://codecov.io/gh/takuya-takeuchi/CenterFaceDotNet)
 
-C# version of Ultra-Light-Fast-Generic-Face-Detector-1MB
-This repository is porting https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB by C#.
+C# version of CenterFace
+This repository is porting https://github.com/Star-Clouds/CenterFace by C#.
 
 This package supports cross platform, Windows, Linux and MacOSX!!
 
@@ -11,13 +11,13 @@ This package supports cross platform, Windows, Linux and MacOSX!!
 
 ## Dependencies Libraries and Products
 
-#### [Ultra-Light-Fast-Generic-Face-Detector-1MB](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB/)
+#### [CenterFace](https://github.com/Star-Clouds/CenterFace/)
 
-> **License:** The MIT License
+> **License:** Unknown
 >
-> **Author:** Linzaer
+> **Author:** StarClouds
 > 
-> **Principal Use:** 1MB lightweight face detection model. Main goal of UltraFaceDotNet is what ports Ultra-Light-Fast-Generic-Face-Detector-1MB by C#.
+> **Principal Use:** Practical anchor-free face detection and alignment method for edge devices. Main goal of CenterFaceDotNet is what ports CenterFace by C#.
 
 #### [ncnn](https://github.com/Tencent/ncnn/)
 
