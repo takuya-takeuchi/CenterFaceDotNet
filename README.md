@@ -7,7 +7,7 @@ This package supports cross platform, Windows, Linux and MacOSX!!
 
 ## Demo
 
-<img src="examples/Demo/images/image.jpg"/>
+<img src="examples/Demo/images/image.jpg" width="480"/>
 
 ## Dependencies Libraries and Products
 
