@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CenterFaceDotNet</name>
+    </assembly>
+    <members>
+        <member name="T:CenterFaceDotNet.CenterFace">
+            <summary>
+            顔を探索するメソッドを提供します。このクラスは継承できません。
+            </summary>
+        </member>
+        <member name="M:CenterFaceDotNet.CenterFace.Create(CenterFaceDotNet.CenterFaceParameter)">
+            <summary>
+            パラメータを指定して、<see cref="T:CenterFaceDotNet.CenterFace"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="parameter">パラメータ。</param>
+            <returns>このメソッドが作成した <see cref="T:CenterFaceDotNet.CenterFace"/>。</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="parameter"/> が null です。</exception>
+            <exception cref="T:System.ArgumentException">モデル バイナリ ファイルが null または空白です。またはパラメータ ファイルが null または空白です。</exception>
+            <exception cref="T:System.IO.FileNotFoundException">モデル バイナリ ファイルが見つかりません。またはパラメータ ファイルが見つかりません。</exception>
+        </member>
+        <member name="M:CenterFaceDotNet.CenterFace.Detect(NcnnDotNet.Mat,System.Int32,System.Int32,System.Single,System.Single)">
+            <summary>
+            指定した画像内の全ての顔に対応する顔の位置の列挙可能なコレクションを返します。
+            </summary>
+            <param name="image">顔を含む画像。画像には複数の顔を含めることができます。</param>
+            <param name="resizedWidth">リサイズ後の入力画像のピクセル幅。</param>
+            <param name="resizedHeight">リサイズ後の入力画像のピクセル高。</param>
+            <param name="scoreThreshold">顔の検出に対するスコアの閾値。既定は 0.5f です。</param>
+            <param name="nmsThreshold">顔の検出に対する Non Maximum Suppression の閾値。既定は 0.3f です。</param>
+            <returns>指定した画像内の全ての顔に対応する顔の位置の列挙可能なコレクション。</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="image"/> が null です。</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="image"/> が空です。</exception>
+            <exception cref="T:System.ObjectDisposedException"><paramref name="image"/> またはこのオブジェクトは破棄されています。</exception>
+        </member>
+        <member name="M:CenterFaceDotNet.CenterFace.DisposeUnmanaged">
+            <summary>
+            アンマネージ リソースを解放します。
+            </summary>
+        </member>
+        <member name="T:CenterFaceDotNet.CenterFaceParameter">
+            <summary>
+            <see cref="T:CenterFaceDotNet.CenterFace"/> のパラメータを表現します。このクラスは継承できません。
+            </summary>
+        </member>
+        <member name="P:CenterFaceDotNet.CenterFaceParameter.BinFilePath">
+            <summary>
+            モデル バイナリ ファイルのファイル パスを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:CenterFaceDotNet.CenterFaceParameter.ParamFilePath">
+            <summary>
+            パラメータ ファイルのファイル パスを取得または設定します。
+            </summary>
+        </member>
+        <member name="T:CenterFaceDotNet.DisposableObject">
+            <summary>
+            マネージまたはアンマネージ リソースを持つクラスを表します。
+            </summary>
+        </member>
+        <member name="P:CenterFaceDotNet.DisposableObject.IsDisposed">
+            <summary>
+            インスタンスが破棄されているかどうかを示す値を取得します。
+            </summary>
+            <returns>インスタンスが破棄されている場合は true。それ以外の場合は false。</returns>
+        </member>
+        <member name="M:CenterFaceDotNet.DisposableObject.ThrowIfDisposed">
+            <summary>
+            オブジェクトが破棄されている場合、<see cref="T:System.ObjectDisposedException"/> がスローされます。
+            </summary>
+        </member>
+        <member name="M:CenterFaceDotNet.DisposableObject.DisposeManaged">
+            <summary>
+            マネージ リソースを解放します。
+            </summary>
+        </member>
+        <member name="M:CenterFaceDotNet.DisposableObject.DisposeUnmanaged">
+            <summary>
+            アンマネージ リソースを解放します。
+            </summary>
+        </member>
+        <member name="M:CenterFaceDotNet.DisposableObject.Dispose">
+            <summary>
+            この <see cref="T:CenterFaceDotNet.DisposableObject"/> によって使用されている全てのリソースを解放します。
+            </summary>
+        </member>
+        <member name="M:CenterFaceDotNet.DisposableObject.Dispose(System.Boolean)">
+            <summary>
+            この <see cref="T:CenterFaceDotNet.DisposableObject"/> によって使用されている全てのリソースを解放します。
+            </summary>
+            <param name="disposing"><see cref="M:System.IDisposable.Dispose"/> メソッドが呼ばれたかどうかを示す値。</param>
+        </member>
+        <member name="T:CenterFaceDotNet.FaceInfo">
+            <summary>
+            顔の左端、上端、右端、下端位置を説明します。このクラスは継承できません。
+            </summary>
+        </member>
+        <member name="P:CenterFaceDotNet.FaceInfo.X1">
+            <summary>
+            顔の矩形の左側の X 軸の値を取得します。
+            </summary>
+        </member>
+        <member name="P:CenterFaceDotNet.FaceInfo.Y1">
+            <summary>
+            顔の矩形の上側の Y 軸の値を取得します。
+            </summary>
+        </member>
+        <member name="P:CenterFaceDotNet.FaceInfo.X2">
+            <summary>
+            顔の矩形の右側の X 軸の値を取得します。
+            </summary>
+        </member>
+        <member name="P:CenterFaceDotNet.FaceInfo.Y2">
+            <summary>
+            顔の矩形の下側の Y 軸の値を取得します。
+            </summary>
+        </member>
+        <member name="P:CenterFaceDotNet.FaceInfo.Score">
+            <summary>
+            顔の矩形のスコアを取得します。
+            </summary>
+        </member>
+        <member name="P:CenterFaceDotNet.FaceInfo.Area">
+            <summary>
+            顔の矩形の領域を取得します。
+            </summary>
+        </member>
+        <member name="P:CenterFaceDotNet.FaceInfo.Landmarks">
+            <summary>
+            顔の構成要素位置 (眼、鼻等) を取得します。
+            </summary>
+        </member>
+        <member name="T:CenterFaceDotNet.NonMaximumSuppressionMode">
+            <summary>
+            Non Maximum Suppression のモードを指定します。
+            </summary>
+        </member>
+        <member name="F:CenterFaceDotNet.NonMaximumSuppressionMode.Union">
+            <summary>
+            ユニオン NMS を示します。
+            </summary>
+        </member>
+        <member name="F:CenterFaceDotNet.NonMaximumSuppressionMode.Minimum">
+            <summary>
+            ミニマム NMS を示します。
+            </summary>
+        </member>
+    </members>
+</doc>

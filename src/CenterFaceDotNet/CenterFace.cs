@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using NcnnDotNet;
 
 namespace CenterFaceDotNet
 {
 
+    /// <summary>
+    /// Provides the method to find face methods. This class cannot be inherited.
+    /// </summary>
     public sealed class CenterFace : DisposableObject
     {
 
         #region Fields
 
-        private Net _Net;
+        private readonly Net _Net;
 
         private int _DH;
 
@@ -35,9 +39,6 @@ namespace CenterFaceDotNet
 
         private CenterFace(CenterFaceParameter parameter)
         {
-            if (parameter == null)
-                throw new ArgumentNullException(nameof(parameter));
-
             this._Net = new Net();
             this._Net.LoadParam(parameter.ParamFilePath);
             this._Net.LoadModel(parameter.BinFilePath);
@@ -47,30 +48,62 @@ namespace CenterFaceDotNet
 
         #region Methods
 
+        /// <summary>
+        /// Create a new instance of the <see cref="CenterFace"/> class with the specified parameter.
+        /// </summary>
+        /// <param name="parameter">The parameter.</param>
+        /// <returns>The <see cref="CenterFace"/> this method creates.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="parameter"/> is null.</exception>
+        /// <exception cref="ArgumentException">The model binary file is null or whitespace. Or the param file is null or whitespace.</exception>
+        /// <exception cref="FileNotFoundException">The model binary file is not found. Or the param file is not found.</exception>
         public static CenterFace Create(CenterFaceParameter parameter)
         {
+            if (parameter == null)
+                throw new ArgumentNullException(nameof(parameter));
+            if (string.IsNullOrWhiteSpace(parameter.BinFilePath))
+                throw new ArgumentException("The model binary file is null or whitespace", nameof(parameter.BinFilePath));
+            if (string.IsNullOrWhiteSpace(parameter.ParamFilePath))
+                throw new ArgumentException("The param file is null or whitespace", nameof(parameter.ParamFilePath));
+            if (!File.Exists(parameter.BinFilePath))
+                throw new FileNotFoundException("The model binary file is not found.");
+            if (!File.Exists(parameter.ParamFilePath))
+                throw new FileNotFoundException("The param file is not found.");
+
             return new CenterFace(parameter);
         }
 
-        public IEnumerable<FaceInfo> Detect(Mat img,
+        /// <summary>
+        /// Returns an enumerable collection of face location correspond to all faces in specified image.
+        /// </summary>
+        /// <param name="image">The image contains faces. The image can contain multiple faces.</param>
+        /// <param name="resizedWidth">The pixel width after resized input image.</param>
+        /// <param name="resizedHeight">The pixel height after resized input image.</param>
+        /// <param name="scoreThreshold">The score threshold for detecting face. The default is 0.5f.</param>
+        /// <param name="nmsThreshold">The non maximum suppression threshold for detecting face. The default is 0.3f.</param>
+        /// <returns>An enumerable collection of face location correspond to all faces in specified image.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="image"/> is null.</exception>
+        /// <exception cref="ArgumentException"><paramref name="image"/> is empty.</exception>
+        /// <exception cref="ObjectDisposedException"><paramref name="image"/> or this object is disposed.</exception>
+        public IEnumerable<FaceInfo> Detect(Mat image,
                                             int resizedWidth,
                                             int resizedHeight,
                                             float scoreThreshold = 0.5f,
                                             float nmsThreshold = 0.3f)
         {
-            if (img == null)
-                throw new ArgumentNullException(nameof(img));
+            if (image == null)
+                throw new ArgumentNullException(nameof(image));
 
-            img.ThrowIfDisposed();
+            image.ThrowIfDisposed();
+            this.ThrowIfDisposed();
 
             var faceList = new List<FaceInfo>();
-            if (this.Detect(img,
+            if (this.Detect(image,
                             resizedWidth,
                             resizedHeight,
                             scoreThreshold,
                             nmsThreshold,
                             faceList) != 0)
-                throw new ApplicationException();
+                throw new ArgumentException("Image is empty.", nameof(image));
 
             return faceList.ToArray();
         }
@@ -91,21 +124,21 @@ namespace CenterFaceDotNet
 
         #region Helpers
 
-        private int Detect(Mat img,
+        private int Detect(Mat image,
                            int resizedWidth,
                            int resizedHeight,
                            float scoreThreshold,
                            float nmsThreshold,
                            List<FaceInfo> faces)
         {
-            if (img.IsEmpty)
+            if (image.IsEmpty)
             {
                 Console.WriteLine("image is empty ,please check!");
                 return -1;
             }
 
-            this._ImageH = img.H;
-            this._ImageW = img.W;
+            this._ImageH = image.H;
+            this._ImageW = image.W;
 
             this._ScaleW = (float)this._ImageW / resizedWidth;
             this._ScaleH = (float)this._ImageH / resizedHeight;
@@ -114,7 +147,7 @@ namespace CenterFaceDotNet
             {
                 //scale 
                 this.DynamicScale(resizedWidth, resizedHeight);
-                Ncnn.ResizeBilinear(img, @in, this._DW, this._DH);
+                Ncnn.ResizeBilinear(image, @in, this._DW, this._DH);
 
                 using (var ex = this._Net.CreateExtractor())
                 {
