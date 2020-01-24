@@ -5,6 +5,15 @@ This repository is porting https://github.com/Star-Clouds/CenterFace by C#.
 
 This package supports cross platform, Windows, Linux and MacOSX!!
 
+|Package|OS|x86|x64|ARM|ARM64|Nuget|
+|---|---|---|---|---|---|---|
+|CenterFaceDotNet (CPU)|Windows|-|✓|-|-|[![NuGet version](https://img.shields.io/nuget/v/CenterFaceDotNet.svg)](https://www.nuget.org/packages/CenterFaceDotNet)|
+||Linux|-|✓|-|-|[![NuGet version](https://img.shields.io/nuget/v/CenterFaceDotNet.svg)](https://www.nuget.org/packages/CenterFaceDotNet)|
+||OSX|-|✓|-|-|[![NuGet version](https://img.shields.io/nuget/v/CenterFaceDotNet.svg)](https://www.nuget.org/packages/CenterFaceDotNet)|
+|CenterFaceDotNet (GPU)|Windows|-|✓|-|-|[![NuGet version](https://img.shields.io/nuget/v/CenterFaceDotNet.GPU.svg)](https://www.nuget.org/packages/CenterFaceDotNet.GPU)|
+||Linux|-|✓|-|-|[![NuGet version](https://img.shields.io/nuget/v/CenterFaceDotNet.GPU.svg)](https://www.nuget.org/packages/CenterFaceDotNet.GPU)|
+||OSX|-|✓|-|-|[![NuGet version](https://img.shields.io/nuget/v/CenterFaceDotNet.GPU.svg)](https://www.nuget.org/packages/NcnnDotNet.GPU)|
+
 ## Demo
 
 <img src="examples/Demo/images/image.jpg" width="480"/>
