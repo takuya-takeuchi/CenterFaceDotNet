@@ -28,5 +28,9 @@
     
     <!-- license -->
     <file src="..\..\LICENSE.txt" target="" /> 
+    <file src="..\..\Licenses\CenterFace.txt" target="licenses" />
+    <file src="..\..\Licenses\ncnn.txt" target="licenses" />
+    <file src="..\..\Licenses\NcnnDotNet.txt" target="licenses" />
+    <file src="..\..\Licenses\OpenCV.txt" target="licenses" />
   </files>
 </package>

@@ -13,7 +13,7 @@ This package supports cross platform, Windows, Linux and MacOSX!!
 
 #### [CenterFace](https://github.com/Star-Clouds/CenterFace/)
 
-> **License:** Unknown
+> **License:** The MIT License
 >
 > **Author:** StarClouds
 > 

@@ -27,6 +27,10 @@
     <file src="..\..\src\CenterFaceDotNet\docs\ja\*.xml" target="lib\netstandard2.0\ja" />
     
     <!-- license -->
-    <file src="..\..\LICENSE.txt" target="" /> 
+    <file src="..\..\LICENSE.txt" target="" />
+    <file src="..\..\Licenses\CenterFace.txt" target="licenses" />
+    <file src="..\..\Licenses\ncnn.txt" target="licenses" />
+    <file src="..\..\Licenses\NcnnDotNet.txt" target="licenses" />
+    <file src="..\..\Licenses\OpenCV.txt" target="licenses" />
   </files>
 </package>
