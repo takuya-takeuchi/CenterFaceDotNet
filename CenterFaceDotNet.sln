@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NcnnDotNet", "src\NcnnDotNe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CenterFaceDotNet", "src\CenterFaceDotNet\CenterFaceDotNet.csproj", "{A0C59980-490D-4709-A66A-252628412030}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark", "examples\Benchmark\Benchmark.csproj", "{8B7E083B-2B5F-44C4-8834-2D67AF14FF97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{A0C59980-490D-4709-A66A-252628412030}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C59980-490D-4709-A66A-252628412030}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C59980-490D-4709-A66A-252628412030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B7E083B-2B5F-44C4-8834-2D67AF14FF97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B7E083B-2B5F-44C4-8834-2D67AF14FF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B7E083B-2B5F-44C4-8834-2D67AF14FF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B7E083B-2B5F-44C4-8834-2D67AF14FF97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{68C45B85-1516-4CB8-BC47-DC3E44E57B9B} = {A845B09E-BF6F-4CA0-8F59-55D1FB7636B9}
 		{64F6B667-E04B-424A-8F0C-95B592C4F192} = {28CAF23C-0CCF-4F0C-82E2-5D750DE04005}
 		{A0C59980-490D-4709-A66A-252628412030} = {28CAF23C-0CCF-4F0C-82E2-5D750DE04005}
+		{8B7E083B-2B5F-44C4-8834-2D67AF14FF97} = {A845B09E-BF6F-4CA0-8F59-55D1FB7636B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94299202-4F86-402C-84EC-1BF022598E9F}
