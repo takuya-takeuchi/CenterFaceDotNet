@@ -1,3 +1,6 @@
 [submodule "src/NcnnDotNet"]
 	path = src/NcnnDotNet
 	url = https://github.com/takuya-takeuchi/NcnnDotNet
+[submodule "src/CenterFace"]
+	path = src/CenterFace
+	url = https://github.com/Star-Clouds/CenterFace
